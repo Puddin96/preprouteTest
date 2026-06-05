@@ -1,0 +1,311 @@
+.test-creation__button-group {
+  display: inline-flex;
+  align-items: stretch;
+  margin-top: 1.5rem;
+  /* padding: 0.25rem; */
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  gap: 0.25rem;
+}
+
+.test-creation__button-group-item {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.test-creation__button-group-item:hover:not(.test-creation__button-group-item--active) {
+  color: var(--text-h);
+  background: rgba(214, 235, 242, 0.416);
+}
+
+.test-creation__button-group-item--active {
+  background: #fff;
+  color: blue;
+  font-weight: 400;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.test-creation__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 100%;
+  margin-top: 1rem;
+  /* padding: 1.5rem; */
+  color: black;
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .test-creation__button-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .test-creation__button-group-item {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+.test-creation__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+}
+
+.test-creation__column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .test-creation__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.test-creation__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: black;
+}
+
+.test-creation__field > span {
+  line-height: 1.2;
+}
+
+.test-creation__field input,
+.test-creation__field select {
+  font: inherit;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: black;
+  transition: border-color 0.15s;
+}
+
+.test-creation__field select:disabled,
+.test-creation__field input:disabled {
+  color: black;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.test-creation__field input:focus,
+.test-creation__field select:focus {
+  outline: none;
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.test-creation__duration-row {
+  --test-creation-control-height: 2.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.test-creation__field--duration {
+  width: 100%;
+  min-width: 0;
+}
+
+.test-creation__field--duration input {
+  height: var(--test-creation-control-height);
+  box-sizing: border-box;
+}
+
+.test-creation__difficulty {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-width: 0;
+}
+
+.test-creation__difficulty-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.test-creation__radio-group {
+  display: flex;
+  align-items: center;
+  gap: 31%;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  min-height: var(--test-creation-control-height);
+  box-sizing: border-box;
+}
+
+.test-creation__radio {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: black;
+  cursor: pointer;
+}
+
+.test-creation__radio input[type='radio'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  flex-shrink: 0;
+  border: 2px solid #7ec8f7;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.test-creation__radio input[type='radio']:checked {
+  border-color: #4db3f7;
+  background: #fff;
+}
+
+.test-creation__radio input[type='radio']:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #7ec8f7;
+  transform: translate(-50%, -50%);
+}
+
+.test-creation__radio input[type='radio']:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(126, 200, 247, 0.35);
+}
+
+@media (max-width: 768px) {
+  .test-creation__duration-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.test-creation__marking {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 1.25rem;
+  padding-top: 0.25rem;
+}
+
+.test-creation__section-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  color: black;
+  line-height: 1.2;
+}
+
+.test-creation__marking-scores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem 2rem;
+}
+
+.test-creation__marking-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .test-creation__marking-scores {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .test-creation__marking-meta {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.test-creation__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+}
+
+.test-creation__btn {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.test-creation__btn--cancel {
+  width: 10%;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: black;
+}
+
+.test-creation__btn--cancel:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+.test-creation__btn--next {
+  width: 10%;
+  border: none;
+  background: #7ec8f7;
+  color: black;
+}
+
+.test-creation__btn--next:hover {
+  opacity: 0.9;
+}
+
+.test-creation__error {
+  margin: 0;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+  color: #b91c1c;
+  background: rgba(185, 28, 28, 0.1);
+  border: 1px solid rgba(185, 28, 28, 0.3);
+  border-radius: 8px;
+}

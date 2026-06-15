@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { AiOutlineBell, AiOutlineDown } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
-import { clearUser, getUser } from '../../utils/authStorage.ts'
+import { clearAllSessionData } from '../../utils/clearSessionData.ts'
+import { getUser } from '../../utils/authStorage.ts'
 
 function getInitials(userId: string) {
   return userId.slice(0, 2).toUpperCase()
@@ -28,7 +29,7 @@ export default function HomeHeader() {
   }, [isOpen])
 
   function handleLogout() {
-    clearUser()
+    clearAllSessionData()
     setIsOpen(false)
     navigate('/login')
   }

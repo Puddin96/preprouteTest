@@ -9,14 +9,37 @@
 
 .home-sidebar {
     flex-shrink: 0;
-    width: 15%;
+    width: 240px;
     align-self: stretch;
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 1rem;
     background: white;
     border-right: 1px solid #dcd8d8;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    transition: width 0.25s ease;
+    overflow: hidden;
+}
+
+.home-sidebar--collapsed {
+    width: 72px;
+}
+
+.home-sidebar__logo {
+    display: block;
+    width: calc(100% - 1.5rem);
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto 0.5rem;
+    padding: 0 0.75rem;
+    box-sizing: border-box;
+    transition: max-width 0.25s ease, width 0.25s ease;
+}
+
+.home-sidebar--collapsed .home-sidebar__logo {
+    width: 2.5rem;
+    max-width: 2.5rem;
+    padding: 0;
 }
 
 .home-sidebar__brand {
@@ -32,6 +55,12 @@
     flex-direction: column;
     gap: 0.25rem;
     padding: 0 0.75rem;
+    flex: 1;
+    min-height: 0;
+}
+
+.home-sidebar--collapsed .home-sidebar__nav {
+    padding: 0 0.5rem;
 }
 
 .home-sidebar__link {
@@ -43,7 +72,12 @@
     color: var(--text);
     text-decoration: none;
     border-radius: 8px;
-    transition: background 0.15s, color 0.15s;
+    transition: background 0.15s, color 0.15s, padding 0.25s ease;
+}
+
+.home-sidebar--collapsed .home-sidebar__link {
+    justify-content: center;
+    padding: 0.65rem;
 }
 
 .home-sidebar__icon {
@@ -55,19 +89,72 @@
 .home-sidebar__label {
     line-height: 1.2;
     font-weight: 500;
-    color: gray;
+    color: darkblue;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.2s ease, width 0.25s ease;
+}
+
+.home-sidebar--collapsed .home-sidebar__label {
+    width: 0;
+    opacity: 0;
 }
 
 .home-sidebar__link:hover {
-    background: rgb(181, 181, 223);
+    background: cornflowerblue;
     color: var(--text-h);
 }
 
 .home-sidebar__link--active {
     background: rgb(211, 240, 250);
-    color: var(--text-h);
+    color: darkblue;
     font-weight: 500;
-    box-shadow: inset 3px 0 0 var(--accent);
+    box-shadow: inset 3px 0 0 darkblue;
+}
+
+.home-sidebar__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0.5rem 0.75rem 0;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4b5563;
+    cursor: pointer;
+    transition: background 0.15s, padding 0.25s ease, border-color 0.15s;
+}
+
+.home-sidebar__toggle:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.home-sidebar--collapsed .home-sidebar__toggle {
+    justify-content: center;
+    margin-inline: 0.5rem;
+    padding: 0.65rem;
+}
+
+.home-sidebar__toggle-icon {
+    flex-shrink: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.home-sidebar__toggle-label {
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.2s ease, width 0.25s ease;
+}
+
+.home-sidebar--collapsed .home-sidebar__toggle-label {
+    width: 0;
+    opacity: 0;
 }
 
 .home-content {
@@ -104,14 +191,14 @@
     padding: 0;
     border: 1px solid var(--border);
     border-radius: 50%;
-    background: var(--accent-bg);
+    background: white;
     color: var(--text-h);
     cursor: pointer;
     transition: background 0.15s, border-color 0.15s;
 }
 
 .home-header__notification-btn:hover {
-    background: lightblue;
+    background: cornflowerblue;
     border-color: var(--accent-border);
 }
 
@@ -140,7 +227,7 @@
 }
 
 .home-header__profile-trigger:hover {
-    background: var(--accent-bg);
+    background: rgb(214, 228, 233);
 }
 
 .home-header__avatar {
@@ -154,7 +241,7 @@
     font-size: 0.8rem;
     font-weight: 600;
     color: #fff;
-    background: var(--accent);
+    background: cornflowerblue;
 }
 
 .home-header__name {
@@ -234,6 +321,76 @@
     font-size: 1rem;
 }
 
+.dashboard-overview__intro {
+    margin: 1.25rem 0 0;
+    font-size: 1.05rem;
+    color: var(--text);
+    max-width: 42rem;
+}
+
+.dashboard-overview__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.dashboard-overview__card {
+    padding: 1.25rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+.dashboard-overview__card-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: black;
+}
+
+.dashboard-overview__card-text {
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.dashboard-overview__list {
+    margin: 0;
+    padding-left: 1.15rem;
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.dashboard-overview__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.dashboard-overview__action {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    border: 1px solid var(--accent-border);
+    border-radius: 8px;
+    background: cornflowerblue;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.dashboard-overview__action:hover {
+    opacity: 0.9;
+    /* border-color: var(--accent);
+    background: rgba(170, 59, 255, 0.15); */
+}
+
 @media (max-width: 768px) {
     .home-layout {
         flex-direction: column;
@@ -241,17 +398,43 @@
         min-height: 100svh;
     }
 
-    .home-sidebar {
+    .home-sidebar,
+    .home-sidebar--collapsed {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid #dcd8d8;
         padding: 1rem 0;
     }
 
-    .home-sidebar__nav {
+    .home-sidebar__logo,
+    .home-sidebar--collapsed .home-sidebar__logo {
+        width: calc(100% - 2rem);
+        max-width: 180px;
+        padding: 0 1rem;
+    }
+
+    .home-sidebar__nav,
+    .home-sidebar--collapsed .home-sidebar__nav {
         flex-direction: row;
         flex-wrap: wrap;
         padding: 0 1rem;
+    }
+
+    .home-sidebar__link,
+    .home-sidebar--collapsed .home-sidebar__link {
+        justify-content: flex-start;
+        padding: 0.65rem 0.85rem;
+    }
+
+    .home-sidebar__label,
+    .home-sidebar--collapsed .home-sidebar__label {
+        width: auto;
+        opacity: 1;
+    }
+
+    .home-sidebar__toggle,
+    .home-sidebar--collapsed .home-sidebar__toggle {
+        display: none;
     }
 
     .home-sidebar__link--active {

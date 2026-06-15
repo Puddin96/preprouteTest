@@ -106,18 +106,42 @@
 
 .login__field input:focus {
   outline: none;
-  border-color: var(--accent-border);
-  box-shadow: 0 0 0 3px var(--accent-bg);
+  border-color: darkblue;
+  box-shadow: 0 0 0 3px cornflowerblue;
+}
+
+.login__forgot {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: cornflowerblue;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.login__forgot:hover:not(:disabled) {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.login__forgot:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .login__submit {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   font: inherit;
   font-weight: 500;
   padding: 0.75rem 1rem;
   border: none;
   border-radius: 8px;
-  background: var(--accent);
+  background: cornflowerblue;
   color: #fff;
   cursor: pointer;
   transition: opacity 0.15s;

@@ -1,19 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axiosInstance from "/Users/shivam.sutar/Personal-Projects/preproute-test/src/services/axiosInstance.ts";
+import axiosInstance from "./axiosInstance";
+import type { BulkQuestionsPayload } from "../utils/buildBulkQuestionPayload.ts";
 
+
+//Get Service calls
 export const getAllSubjects = async () => {
     const response = await axiosInstance.get("/subjects");
     return response.data;
 };
 
-
-//Get Service calls
 export const getTopicsBySubject = async (subjectId: string | number) => {
+    if (!subjectId) {
+        throw new Error('subjectId is required')
+    }
+
     const response = await axiosInstance.get(`/topics/subject/${subjectId}`);
     return response.data;
 };
 
 export const getSubTopicsByTopic = async (topicId: string | number) => {
+    if (!topicId) {
+        throw new Error('topicId is required')
+    }
+
     const response = await axiosInstance.get(`/sub-topics/topic/${topicId}`);
     return response.data;
 };
@@ -39,7 +48,7 @@ export const createTest = async (data: any) => {
     return response.data;
 };
 
-export const createQuestionsInBulk = async (data: any) => {
+export const createQuestionsInBulk = async (data: BulkQuestionsPayload) => {
     const response = await axiosInstance.post("/questions/bulk", data);
     return response.data;
 };
@@ -51,6 +60,10 @@ export const updateTest = async (id: string | number) => {
 };
 
 export const publishTest = async (id: string | number) => {
+    if (!id) {
+        throw new Error('id is required')
+    }
+
     const response = await axiosInstance.put(`/tests/${id}`);
     return response.data;
 };

@@ -6,6 +6,7 @@ import { setUser } from '../../utils/authStorage.ts'
 // import { login } from '../../services/services'
 import preprouteLogo from '../../assets/Preproute logo.png'
 import './login.css'
+import { login } from '../../services/services.ts'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -18,15 +19,21 @@ export default function Login() {
     event.preventDefault()
     setError(null)
     setLoading(true)
+    const payload = {
+      "userId": userId,
+      "password": password
+    }
 
     try {
-      // const payload = {
-      //   "userId": userId,
-      //   "password": password
-      // }  
-      // await login(payload)
-      setUser({ userId })
-      navigate('/home')
+
+      const response = await login(payload);
+      if (response?.status === 200 || response?.data?.success) {
+        setUser({ userId });
+        navigate('/home');
+      } else {
+        console.error("Login failed");
+      }
+
     } catch (err) {
       const message = isAxiosError(err)
         ? (err.response?.data?.message ?? err.message)
@@ -83,6 +90,14 @@ export default function Login() {
               disabled={loading}
             />
           </label>
+
+          <button
+            type="button"
+            className="login__forgot"
+            disabled={loading}
+          >
+            Forgot Password?
+          </button>
 
           <button type="submit" className="login__submit" disabled={loading}>
             {loading ? 'Logging in…' : 'Log in'}

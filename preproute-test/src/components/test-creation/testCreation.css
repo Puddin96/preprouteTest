@@ -30,7 +30,7 @@
 
 .test-creation__button-group-item--active {
   background: #fff;
-  color: blue;
+  color: cornflowerblue;
   font-weight: 400;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
@@ -165,53 +165,6 @@
   box-sizing: border-box;
 }
 
-.test-creation__radio {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: black;
-  cursor: pointer;
-}
-
-.test-creation__radio input[type='radio'] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 1.125rem;
-  height: 1.125rem;
-  margin: 0;
-  flex-shrink: 0;
-  border: 2px solid #7ec8f7;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-  position: relative;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-
-.test-creation__radio input[type='radio']:checked {
-  border-color: #4db3f7;
-  background: #fff;
-}
-
-.test-creation__radio input[type='radio']:checked::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: #7ec8f7;
-  transform: translate(-50%, -50%);
-}
-
-.test-creation__radio input[type='radio']:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(126, 200, 247, 0.35);
-}
-
 @media (max-width: 768px) {
   .test-creation__duration-row {
     grid-template-columns: 1fr;
@@ -260,7 +213,7 @@
 
 .test-creation__actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
   margin-top: 0.5rem;
@@ -277,26 +230,46 @@
   transition: opacity 0.15s, background 0.15s, border-color 0.15s;
 }
 
-.test-creation__btn--cancel {
-  width: 10%;
-  border: 1px solid var(--border);
-  background: #fff;
-  color: black;
+.test-creation__btn--exit {
+  border: 1px solid #fca5a5;
+  background: #fecaca;
+  color: #991b1b;
 }
 
-.test-creation__btn--cancel:hover {
+.test-creation__btn--exit:hover {
+  background: #fca5a5;
+}
+
+.test-creation__btn--secondary {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: #111827;
+}
+
+.test-creation__btn--secondary:hover {
   background: var(--accent-bg);
-  border-color: var(--accent-border);
 }
 
 .test-creation__btn--next {
   width: 10%;
   border: none;
-  background: #7ec8f7;
+  background: cornflowerblue;
   color: black;
 }
 
 .test-creation__btn--next:hover {
+  opacity: 0.9;
+}
+
+.test-creation__btn--publish {
+  width: 10%;
+  border: none;
+  background: cornflowerblue;
+  color: white;
+  float: right;
+}
+
+.test-creation__btn--publish:hover {
   opacity: 0.9;
 }
 

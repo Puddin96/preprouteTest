@@ -1,0 +1,40 @@
+.test-tracking__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.test-tracking__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.test-tracking__meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.test-tracking__empty {
+  margin: 1.5rem 0 0;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.test-tracking__loading {
+  margin: 1.5rem 0 0;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.test-tracking__error {
+  margin: 1.5rem 0 0;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+  color: #b91c1c;
+  background: rgba(185, 28, 28, 0.1);
+  border: 1px solid rgba(185, 28, 28, 0.3);
+  border-radius: 8px;
+}

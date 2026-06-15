@@ -1,0 +1,244 @@
+.test-summary-banner {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid cornflowerblue;
+  border-radius: 4px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.test-summary-banner__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.test-summary-banner__type-badge {
+  align-self: flex-start;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: #1e3a5f;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.test-summary-banner__title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.test-summary-banner__book-icon {
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  color: #374151;
+}
+
+.test-summary-banner__title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.test-summary-banner__difficulty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.65rem 0.2rem 0.3rem;
+  border-radius: 999px;
+  background: #99f6e4;
+  color: #0f766e;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.test-summary-banner__difficulty-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 0.1rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #0f766e;
+}
+
+.test-summary-banner__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.test-summary-banner__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.test-summary-banner__meta-row dt {
+  width: 5.25rem;
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.test-summary-banner__meta-row dt::after {
+  content: ' :';
+}
+
+.test-summary-banner__meta-row dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.test-summary-banner__tag {
+  display: inline-block;
+  padding: 0.15rem 0.65rem;
+  border: 1.5px solid #fbbf24;
+  border-radius: 999px;
+  background: #fff;
+  color: #d97706;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.test-summary-banner__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-width: 280px;
+}
+
+.test-summary-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.test-summary-banner__edit,
+.test-summary-banner__delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.test-summary-banner__edit {
+  color: #2563eb;
+}
+
+.test-summary-banner__delete {
+  color: #dc2626;
+}
+
+.test-summary-banner__edit:hover:not(:disabled),
+.test-summary-banner__delete:hover:not(:disabled) {
+  opacity: 0.75;
+}
+
+.test-summary-banner__edit:disabled,
+.test-summary-banner__delete:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.test-summary-banner__stats {
+  display: flex;
+  align-items: center;
+  padding: 0.55rem 0.85rem;
+  border-radius: 6px;
+  background: #f3f4f6;
+  gap: 0;
+}
+
+.test-summary-banner__stat {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.test-summary-banner__stat:first-child {
+  padding-left: 0;
+}
+
+.test-summary-banner__stat:last-child {
+  padding-right: 0;
+}
+
+.test-summary-banner__stat-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+.test-summary-banner__stat-divider {
+  width: 1px;
+  align-self: stretch;
+  min-height: 1.25rem;
+  background: #d1d5db;
+}
+
+@media (max-width: 900px) {
+  .test-summary-banner {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .test-summary-banner__right {
+    width: 100%;
+    min-width: 0;
+    align-items: stretch;
+  }
+
+  .test-summary-banner__edit {
+    align-self: flex-end;
+  }
+
+  .test-summary-banner__stats {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .test-summary-banner__stat {
+    padding: 0;
+  }
+
+  .test-summary-banner__stat-divider {
+    display: none;
+  }
+}

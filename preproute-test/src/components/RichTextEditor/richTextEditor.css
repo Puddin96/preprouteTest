@@ -1,0 +1,18 @@
+.rich-text-editor {
+  width: 100%;
+}
+
+.rich-text-editor .MuiTiptap-RichTextField-root {
+  border-radius: 8px;
+}
+
+.rich-text-editor .MuiTiptap-RichTextField-content {
+  font: inherit;
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+.rich-text-editor .ProseMirror p.is-editor-empty:first-child::before {
+  color: #9ca3af;
+  font-style: normal;
+}
